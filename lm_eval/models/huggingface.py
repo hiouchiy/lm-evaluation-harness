@@ -257,8 +257,9 @@ class HuggingFaceAutoLM(BaseLM):
                 max_memory=max_memory,
                 offload_folder=offload_folder,
                 load_in_8bit=load_in_8bit,
-                trust_remote_code=trust_remote_code,
+                trust_remote_code=True,
                 torch_dtype=torch_dtype,
+                cache_dir="/local_disk0/hf",
             )
         else:
             from auto_gptq import AutoGPTQForCausalLM
@@ -318,6 +319,7 @@ class HuggingFaceAutoLM(BaseLM):
             pretrained if tokenizer is None else tokenizer,
             revision=revision + ("/" + subfolder if subfolder is not None else ""),
             use_fast=use_fast,
+            trust_remote_code=True,
         )
         tokenizer.pad_token = tokenizer.eos_token
         return tokenizer
@@ -517,6 +519,7 @@ class AutoCausalLM(HuggingFaceAutoLM):
             max_new_tokens=max_tokens,
             stopping_criteria=stopping_criteria,
             do_sample=False,
+            pad_token_id=self.tokenizer.eos_token_id,
         )
         return utils.select_continuation_from_batch_left_padding(
             generations, max_context_size=inputs["input_ids"].size(1)

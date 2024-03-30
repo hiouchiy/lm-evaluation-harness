@@ -1,6 +1,10 @@
 # Databricks notebook source
 # MAGIC %md
 # MAGIC # DBRXの日本語ベンチマーク　〜JGLEU版〜
+# MAGIC
+# MAGIC 環境
+# MAGIC - Databricks Runtime: 14.3 LTS ML GPU
+# MAGIC - ノートサイズ: Standard_NC96ads_A100_v4 (A100_80GB × 4)以上　（※RAMが270GBほど必要なため）
 
 # COMMAND ----------
 
@@ -20,6 +24,12 @@
 
 # MAGIC %md
 # MAGIC ## HuggingFaceへログイン
+# MAGIC
+# MAGIC 【**重要**】事前に下記のサイトにて利用申請フォームを提出いただく必要があります。
+# MAGIC - DBRX-instruct: https://huggingface.co/databricks/dbrx-instruct
+# MAGIC - DBRX-base: https://huggingface.co/databricks/dbrx-base
+# MAGIC
+# MAGIC その後にHuggigFaceのアカウント設定よりアクセストークンを発行し、下記コマンドにて表示されるログインフォームに入力ください。
 
 # COMMAND ----------
 

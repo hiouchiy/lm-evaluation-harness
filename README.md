@@ -51,6 +51,9 @@
 
 We evaluated some open-sourced Japanese LMs. Pleasae refer to `harness.sh` inside `models` folder.
 
+## How to evaluate DBRX
+
+1. Open the notebook ["DBRX Benchmark Notebook"]() and follow the instructions in it!
 
 ## JP Tasks
 For more details, please see [docs/jptasks.md](https://github.com/Stability-AI/lm-evaluation-harness/blob/jp-stable/docs/jptasks.md).
